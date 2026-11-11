@@ -1,0 +1,21 @@
+# Build output
+bin/
+obj/
+publish/
+dist/
+
+# IDE
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Local runtime state (never commit)
+ai_presets.json
+ai_sessions.json
+*.log
+*.tmp
+
+# OS
+Thumbs.db
+desktop.ini

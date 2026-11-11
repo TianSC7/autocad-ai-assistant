@@ -1,0 +1,50 @@
+name: Bug report
+description: Report a reproducible problem with the AI panel or action execution
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not paste API keys. Redact them as `sk-***`.
+  - type: input
+    id: autocad
+    attributes:
+      label: AutoCAD version
+      placeholder: "2027"
+    validations:
+      required: true
+  - type: input
+    id: dotnet
+    attributes:
+      label: .NET SDK version
+      placeholder: "10.0.203"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Type AI
+        2. Ask "..."
+        3. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: action
+    attributes:
+      label: Action block (if relevant)
+      description: Paste the <<CAD_ACTION>> block, with any sensitive paths removed.
+      render: json
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log lines
+      description: Relevant lines from CadPerception_debug.log.
+      render: text

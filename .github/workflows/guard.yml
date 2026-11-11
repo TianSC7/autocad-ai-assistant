@@ -1,0 +1,30 @@
+name: guard
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  repository-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Reject committed API keys
+        run: |
+          set -e
+          if grep -rInP 'sk-(?!REPLACE)[A-Za-z0-9_-]{16,}' \
+              --include='*.cs' --include='*.json' --include='*.md' --include='*.yml' . ; then
+            echo "Potential API key committed. Remove it and rotate the key."
+            exit 1
+          fi
+          echo "No API key pattern found."
+
+      - name: Reject build artifacts
+        run: |
+          set -e
+          if find . -type d \( -name bin -o -name obj -o -name node_modules -o -name publish \) | grep -q . ; then
+            echo "Build artifacts must not be committed."
+            exit 1
+          fi
+          echo "No build artifact directory found."

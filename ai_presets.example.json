@@ -1,0 +1,37 @@
+{
+  "active_language_model": "your-chat-model-id",
+  "active_vision_model": "your-vision-model-id",
+  "active_embedding_model": "your-embedding-model-id",
+  "lsp_directory": "C:\\Users\\<you>\\Documents\\cadsys\\LSP",
+  "library_memory_root": "C:\\Users\\<you>\\Documents\\cadsys\\library",
+  "presets": [
+    {
+      "id": "your-chat-model-id",
+      "name": "Your Chat Model",
+      "baseUrl": "https://api.example.com/v1",
+      "model": "your-model-name",
+      "apiKey": "sk-REPLACE_WITH_YOUR_KEY",
+      "timeoutSec": 60,
+      "isEmbeddingModel": false,
+      "isTextModel": true,
+      "isImageModel": false,
+      "supportVision": true,
+      "description": "Any OpenAI-compatible chat endpoint."
+    },
+    {
+      "id": "your-embedding-model-id",
+      "name": "Your Embedding Model",
+      "baseUrl": "https://api.example.com/v1",
+      "endpoint": "https://api.example.com/v1/embeddings",
+      "model": "your-embedding-model",
+      "apiKey": "sk-REPLACE_WITH_YOUR_KEY",
+      "timeoutSec": 30,
+      "isEmbeddingModel": true,
+      "isTextModel": false,
+      "isImageModel": false,
+      "supportVision": false,
+      "dimension": 4096,
+      "description": "Used for local experience-library retrieval."
+    }
+  ]
+}
